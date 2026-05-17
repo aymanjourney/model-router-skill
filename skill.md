@@ -10,7 +10,7 @@ When the user provides a prompt, determine its core objective. Use the following
 **When to use:** Math, complex logic puzzles, and high-level reasoning tasks.
 **Best Models:**
 - `ollama run kimi-k2.6:cloud` (Top Intelligence Index)
-- `ollama run ollama run mimo-v2.5:cloud-pro:cloud` (Strong logic & lowest hallucination rate)
+- `ollama run mimo-v2.5:cloud-pro:cloud` (Strong logic & lowest hallucination rate)
 
 ### 2. 💻 Coding, Software Engineering & Terminal Use
 **When to use:** Writing code, debugging, creating scripts, agentic terminal workflows.
@@ -22,7 +22,7 @@ When the user provides a prompt, determine its core objective. Use the following
 ### 3. 📋 Planning & Agentic Execution
 **When to use:** Multi-step workflows, system architecture, executing real-world agentic work tasks.
 **Best Models:**
-- `ollama run ollama run mimo-v2.5:cloud-pro:cloud` (Top in GDPval-AA agenticL workflows)
+- `ollama run mimo-v2.5:cloud-pro:cloud` (Top in GDPval-AA agenticL workflows)
 - `ollama run glm-5.1:cloud` 
 - `ollama run deepseek-v4-flash:cloud`
 
@@ -37,16 +37,22 @@ When the user provides a prompt, determine its core objective. Use the following
 **When to use:** Extremely complex synthesis, highly ambiguous requests, reading massive documents.
 **Best Model:**
 - `ollama run deepseek-v4-flash:cloud` (Due to massive context window limits)
-- `ollama run ollama run mimo-v2.5:cloud-pro:cloud`
-
+- `ollama run mimo-v2.5:cloud-pro:cloud`
 
 
 **⚠️ Plan Constraint (Free Tier):**
 This routing is optimized for the **Ollama Free Plan**. It prioritizes high-efficiency cloud models to maximize the available free quota while maintaining quality.
 
+## Output Formatting Requirement
+To ensure transparency and tracking, every response generated using this routing logic **MUST** end with a clear footer indicating the model used.
+**Format:**
+`---`
+`model-name` (e.g., gemma4:31b)
 
 ## How to execute:
 1. Receive task from user.
 2. Identify task category (1-5).
 3. Connect to the VPS Ollama API requesting the matched model.
-4. Return the result to the user.
+4. Execute the task.
+5. Append the model name footer to the final output.
+6. Return the result to the user.
